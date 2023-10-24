@@ -12,6 +12,8 @@ if height >= 120:
     elif age >= 12:
         print('Youth ticket price ₹70')
         bill = 70
+    elif age >= 45 and age <= 55:
+        print('Free ticker for midlife crisis')
     else:
         print('Child ticket price ₹50')
         bill = 50
