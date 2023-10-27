@@ -1,4 +1,5 @@
 import random
+import os
 import ascii_art
 import wordlist
 
@@ -31,12 +32,14 @@ while not end_of_game:
             dashed_chars[id] = letter
     
     if guess in guessed_letters:
+        os.system('clear')
         print(f'Already guessed "{guess}"')
     else:
         guessed_letters.append(guess)
 
         if guess not in chosen_word:
             lives_used += 1
+            os.system('clear')
 
         if '_' not in dashed_chars:
             end_of_game = True
