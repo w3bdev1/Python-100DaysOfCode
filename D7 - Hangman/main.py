@@ -10,10 +10,17 @@ dashed_chars = ['_' for _ in range(len(chosen_word))]
 print(dashed_chars)
 
 # ask user to guess a letter
-guess = input('Guess a letter: ').lower()
+end_of_game = False
 
-for id, letter in enumerate(chosen_word):
-    if letter == guess:
-        dashed_chars[id] = letter
+while not end_of_game:
+    guess = input('Guess a letter: ').lower()
 
-print(dashed_chars)
+    for id, letter in enumerate(chosen_word):
+        if letter == guess:
+            dashed_chars[id] = letter
+
+    print(dashed_chars)
+
+    if '_' not in dashed_chars:
+        end_of_game = True
+        print('You win!')
