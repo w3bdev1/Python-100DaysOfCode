@@ -57,11 +57,10 @@ stages = ['''
 
 # choose random word
 chosen_word = random.choice(words)
-print(f'Chosen: {chosen_word}')
 
 # dashed chars
 dashed_chars = ['_' for _ in range(len(chosen_word))]
-print(dashed_chars)
+print(' '.join(dashed_chars))
 
 # check lives
 lives_used = 0
@@ -81,7 +80,7 @@ while not end_of_game:
     if guess not in chosen_word:
         lives_used += 1
 
-    print(dashed_chars)
+    print(' '.join(dashed_chars))
 
     if '_' not in dashed_chars:
         end_of_game = True
@@ -91,3 +90,4 @@ while not end_of_game:
         print(stages[lives_used])
         end_of_game = True
         print('You lost!')
+        print(f"Correct word: {chosen_word}")
