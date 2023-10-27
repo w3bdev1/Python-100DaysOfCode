@@ -18,6 +18,7 @@ lives_used = 0
 max_lives = len(stages) - 1
 
 # ask user to guess a letter
+guessed_letters = []
 end_of_game = False
 
 while not end_of_game:
@@ -29,17 +30,22 @@ while not end_of_game:
         if letter == guess:
             dashed_chars[id] = letter
     
-    if guess not in chosen_word:
-        lives_used += 1
+    if guess in guessed_letters:
+        print(f'Already guessed "{guess}"')
+    else:
+        guessed_letters.append(guess)
 
-    if '_' not in dashed_chars:
-        end_of_game = True
-        print(' '.join(dashed_chars))
-        print('You win!')
+        if guess not in chosen_word:
+            lives_used += 1
+
+        if '_' not in dashed_chars:
+            end_of_game = True
+            print(' '.join(dashed_chars))
+            print('You win!')
     
-    if lives_used == max_lives:
-        print(stages[lives_used])
-        print(' '.join(dashed_chars))
-        end_of_game = True
-        print('You lost!')
-        print(f"Correct word: {chosen_word}")
+        if lives_used == max_lives:
+            print(stages[lives_used])
+            print(' '.join(dashed_chars))
+            end_of_game = True
+            print('You lost!')
+            print(f"Correct word: {chosen_word}")
