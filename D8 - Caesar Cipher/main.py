@@ -12,9 +12,7 @@ def caesar(text, shift_amount, directive):
         shift_amount %= len(alphabets)
 
     for c in text:
-        if c == ' ':
-            new_message += ' '
-        else:
+        if c in alphabets:
             if directive == 'e':
                 new_alphabet_index = alphabets.index(c) + shift_amount
                 if new_alphabet_index >= len(alphabets):
@@ -26,8 +24,10 @@ def caesar(text, shift_amount, directive):
             else:
                 print('Invalid direction!')
                 return
-
             new_message += alphabets[new_alphabet_index]
+        else:
+            new_message += c
+
     print(f"Cipher text: {new_message}")
 
 end_of_program = False
