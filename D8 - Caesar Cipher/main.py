@@ -4,9 +4,6 @@ import ascii_art
 # Intialize
 print(ascii_art.logo)
 alphabets = [c for c in string.ascii_lowercase]
-directive = input("Type 'e' to encrypt and 'd' to decrypt: ").strip().lower()
-msg = input("Type your message: ").strip().lower()
-shift = int(input("Shift number: ").strip())
 
 def caesar(text, shift_amount, directive):
     new_message = ""
@@ -33,7 +30,17 @@ def caesar(text, shift_amount, directive):
             new_message += alphabets[new_alphabet_index]
     print(f"Cipher text: {new_message}")
 
-caesar(text=msg, directive=directive, shift_amount=shift)
+end_of_program = False
+while not end_of_program:
+    directive = input("Type 'e' to encrypt and 'd' to decrypt: ").strip().lower()
+    msg = input("Type your message: ").strip().lower()
+    shift = int(input("Shift number: ").strip())
+
+    caesar(text=msg, directive=directive, shift_amount=shift)
+
+    again = input("\nDo you want to go again? [y/n]: ").strip().lower()
+    if again == 'n':
+        end_of_program = True
 
 # def encrypt(text, shift_amount):
 #     new_message = ""
@@ -58,4 +65,3 @@ caesar(text=msg, directive=directive, shift_amount=shift)
 #                 new_alphabet_index = len(alphabets) + new_alphabet_index
 #             new_message += alphabets[new_alphabet_index]
 #     print(f"Decrypted text: {new_message}")
-
