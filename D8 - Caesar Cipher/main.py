@@ -10,7 +10,7 @@ def encrypt(text, shift_amount):
     new_message = ""
     for c in text:
         if c == ' ':
-            new_message.append(c)
+            new_message += ' '
         else:
             new_alphabet_index = alphabets.index(c) + shift_amount
             if new_alphabet_index > len(alphabets):
@@ -18,10 +18,21 @@ def encrypt(text, shift_amount):
             new_message += alphabets[new_alphabet_index]
     print(f"Encrypted text: {new_message}")
 
+def decrypt(text, shift_amount):
+    new_message = ""
+    for c in text:
+        if c == ' ':
+            new_message += ' '
+        else:
+            new_alphabet_index = alphabets.index(c) - shift_amount
+            if new_alphabet_index < 0:
+                new_alphabet_index = len(alphabets) + new_alphabet_index
+            new_message += alphabets[new_alphabet_index]
+    print(f"Decrypted text: {new_message}")
 
 if directive == 'e':
     encrypt(text=msg, shift_amount=shift)
 elif directive == 'd':
-    print("decrypting")
+    decrypt(text=msg, shift_amount=shift)
 else:
     print("Invalid direction!")
