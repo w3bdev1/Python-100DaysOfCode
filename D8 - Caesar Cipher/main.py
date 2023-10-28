@@ -1,7 +1,9 @@
 import string
+import ascii_art
 
+# Intialize
+print(ascii_art.logo)
 alphabets = [c for c in string.ascii_lowercase]
-
 directive = input("Type 'e' to encrypt and 'd' to decrypt: ").strip().lower()
 msg = input("Type your message: ").strip().lower()
 shift = int(input("Shift number: ").strip())
