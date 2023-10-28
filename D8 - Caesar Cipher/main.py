@@ -16,7 +16,7 @@ def caesar(text, shift_amount, directive):
         else:
             if directive == 'e':
                 new_alphabet_index = alphabets.index(c) + shift_amount
-                if new_alphabet_index > len(alphabets):
+                if new_alphabet_index >= len(alphabets):
                     new_alphabet_index = new_alphabet_index - len(alphabets)
             elif directive == 'd':
                 new_alphabet_index = alphabets.index(c) - shift_amount
