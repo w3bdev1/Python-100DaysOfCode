@@ -10,6 +10,10 @@ shift = int(input("Shift number: ").strip())
 
 def caesar(text, shift_amount, directive):
     new_message = ""
+
+    while shift_amount > len(alphabets):
+        shift_amount %= len(alphabets)
+
     for c in text:
         if c == ' ':
             new_message += ' '
