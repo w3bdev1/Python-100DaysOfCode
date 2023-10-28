@@ -13,6 +13,8 @@ def encrypt(text, shift_amount):
             new_message.append(c)
         else:
             new_alphabet_index = alphabets.index(c) + shift_amount
+            if new_alphabet_index > len(alphabets):
+                new_alphabet_index = new_alphabet_index - len(alphabets)
             new_message += alphabets[new_alphabet_index]
     print(f"Encrypted text: {new_message}")
 
