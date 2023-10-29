@@ -1,4 +1,9 @@
 import os
+import ascii_art
+
+# Initialize
+print(ascii_art.logo)
+print("Welcome to Silent Auction!")
 bids = {}
 
 def add_bidding():
