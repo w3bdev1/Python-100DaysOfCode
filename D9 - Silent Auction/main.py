@@ -7,14 +7,7 @@ def add_bidding():
     bids[name] = bid_amount
 
 def find_highest_bidder():
-    highest_bid = 0
-    highest_bidder = ""
-
-    for bidder, bid in bids.items():
-        if bid > highest_bid:
-            highest_bid = bid
-            highest_bidder = bidder
-
+    highest_bid, highest_bidder = max((v, k) for k, v in bids.items())
     print(f"The winner is {highest_bidder} with a bid of ₹{highest_bid}!")
 
 end_of_bid = False
