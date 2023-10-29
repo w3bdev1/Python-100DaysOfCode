@@ -9,11 +9,11 @@ student_scores = {
 student_grades = {}
 
 for name, marks in student_scores.items():
-    if marks >= 91:
+    if marks > 90:
         student_grades[name] = "Outstanding"
-    elif (marks >= 81) and (marks <= 90):
+    elif marks > 80:
         student_grades[name] = "Exceeds Expectations"
-    elif (marks >= 71) and (marks <= 80):
+    elif marks > 70:
         student_grades[name] = "Acceptable"
     else:
         student_grades[name] = "Fail"
