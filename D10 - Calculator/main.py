@@ -22,7 +22,7 @@ operations = {
 
 def calculator():
     print(ascii_art.logo)
-    num1 = int(input("First number: "))
+    num1 = float(input("First number: "))
 
     for operator in operations:
         print(operator)
@@ -32,7 +32,7 @@ def calculator():
 
         operator = input("Choose an operator: ")
 
-        num2 = int(input("Next number: "))
+        num2 = float(input("Next number: "))
 
         operation_function = operations[operator]
         ans = operation_function(num1, num2)
