@@ -22,20 +22,23 @@ num1 = int(input("First number: "))
 for operator in operations:
     print(operator)
 
-operator = input("Choose one of the above operators: ")
+end_of_calculation = False
+while not end_of_calculation:
 
-num2 = int(input("Second number: "))
+    operator = input("Choose an operator: ")
 
-operation_function = operations[operator]
-ans = operation_function(num1, num2)
+    num2 = int(input("Next number: "))
 
-print(f"{num1} {operator} {num2} = {ans}")
+    operation_function = operations[operator]
+    ans = operation_function(num1, num2)
+    print(f"{num1} {operator} {num2} = {ans}")
+    
 
-operator = input("Choose one of the above operators: ")
-
-num3 = int(input("Third number: "))
-
-operation_function = operations[operator]
-new_ans = operation_function(ans, num3)
-
-print(f"{ans} {operator} {num3} = {new_ans}")
+    again = input(f"Continue calculating with {ans}? [y/n] ").lower()
+    if again == 'y':
+        num1 = ans
+    elif again == 'n':
+        end_of_calculation = True
+    else:
+        print("Invalid input")
+        break
