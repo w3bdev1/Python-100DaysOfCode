@@ -13,6 +13,10 @@ def is_leapyear(year):
 def days_in_month(year, month):
     month_days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
+    if month < 1 or month > 12:
+        print("Month has be between 1 and 12")
+        return
+
     if month == 2 and is_leapyear(year):
         return 29
     else:
