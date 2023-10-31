@@ -1,3 +1,6 @@
+import os
+import ascii_art
+
 def add(n1, n2):
     return n1+n2
 
@@ -18,6 +21,7 @@ operations = {
 }
 
 def calculator():
+    print(ascii_art.logo)
     num1 = int(input("First number: "))
 
     for operator in operations:
@@ -33,13 +37,13 @@ def calculator():
         operation_function = operations[operator]
         ans = operation_function(num1, num2)
         print(f"{num1} {operator} {num2} = {ans}")
-        
 
-        again = input(f"Continue calculating with {ans}? [y/n/q] ").lower()
+        again = input(f"Continue calculating with {ans}? [y]es/[n]o/[q]uit: ").lower()
         if again == 'y':
             num1 = ans
         elif again == 'n':
             end_of_calculation = True
+            os.system('clear')
             calculator()
         elif again == 'q':
             end_of_calculation = True
