@@ -1,4 +1,5 @@
 import random
+import ascii_art
 
 cards = {
     'A': 11,
@@ -16,6 +17,9 @@ cards = {
     'Q': 10,
     'K': 10,
 }
+
+# Initialize
+print(ascii_art.logo)
 
 # Choose 2 card for player
 player_cards = random.choices(list(cards.keys()), k=2)
