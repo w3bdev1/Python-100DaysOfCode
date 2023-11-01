@@ -73,7 +73,8 @@ while not end_of_pick:
         end_of_pick = True
 
 # New card for computer
-if calculate_player_hand() <= 21:
+is_choosing = [True, False]
+if calculate_player_hand() <= 21 and random.choice(is_choosing):
     while calculate_computer_hand() < 21:
         computer_cards.append(random.choice(list(cards.keys())))
     print(f"Opponent's hand: {computer_cards}")
