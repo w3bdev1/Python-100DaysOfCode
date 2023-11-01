@@ -41,9 +41,11 @@ def result():
     player_hand = calculate_player_hand()
     computer_hand = calculate_computer_hand()
     print(f"Result: Your hand - {player_hand}, Opponent's hand - {computer_hand}")
-    if player_hand == computer_hand:
+    if player_hand > 21:
+        print("You lose!")
+    elif player_hand == computer_hand:
         print("Draw!")
-    elif player_hand > 21 or computer_hand == 21:
+    elif computer_hand == 21:
         print("You lose!")
     elif computer_hand > 21 or player_hand == 21:
         print("You win!")
@@ -67,9 +69,10 @@ while not end_of_pick:
         end_of_pick = True
 
 # New card for computer
-while calculate_computer_hand() < 21:
-    computer_cards.append(random.choice(list(cards.keys())))
-print(f"Opponent's hand: {computer_cards}")
+if calculate_player_hand() <= 21:
+    while calculate_computer_hand() < 21:
+        computer_cards.append(random.choice(list(cards.keys())))
+    print(f"Opponent's hand: {computer_cards}")
 
 result()
     
