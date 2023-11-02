@@ -2,13 +2,12 @@ import random
 from ascii_art import logo
 
 # Intialize
-numbers = list(range(1,101))
 print(logo)
 print("Welcome to number guesser!")
 
 # Pick number
 print("I'm thinking of a number between 1 and 100")
-correct_number = random.choice(numbers)
+correct_number = random.randint(1, 100)
 # print(f"Correct number: {correct_number}")
 
 # Set difficulty
