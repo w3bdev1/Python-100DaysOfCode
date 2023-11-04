@@ -1,4 +1,5 @@
 import random
+import os
 data = __import__('game-data').data
 from art import logo, vs
 
@@ -7,6 +8,7 @@ persons = random.choices(data, k=2)
 print(f"A: {persons[0]}")
 print(f"B: {persons[1]}")
 
+user_score = 0
 end_of_game = False
 while not end_of_game:
     # Print out their details
@@ -36,9 +38,12 @@ while not end_of_game:
         return choice_follower_count > other_follower_count
 
     if user_won():
-        print("You win")
+        os.system('clear')
+        print("You're correct!")
+        user_score +=1
+        print(f"SCORE: {user_score}")
         persons.pop(0)
         persons.append(random.choice(data))
     else:
-        print("You lose!")
+        print(f"Sorry, that's wrong. Final score: {user_score}")
         end_of_game = True
