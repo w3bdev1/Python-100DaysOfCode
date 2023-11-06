@@ -57,15 +57,18 @@ def make_coffee(flavour):
     print(f"Here is your {flavour}. Enjoy!")
 
 
-user_input = input("What would you like? (espresso/latte/cappuccino): ").lower()
+turned_off = False
+while not turned_off:
+    user_input = input("What would you like? (espresso/latte/cappuccino): ").lower()
 
-if user_input == "report":
-    report()
-elif user_input == "off":
-    pass
-elif (user_input in flavours) and is_sufficient(user_input):
-    money_given = process_coins()
-    if is_successful_transaction(money_given, user_input):
+    if user_input == "report":
         report()
-        make_coffee(user_input)
-        report()
+    elif user_input == "off":
+        print("Turning it off.")
+        turned_off = True
+    elif user_input not in flavours:
+        print("Invalid input!")
+    elif is_sufficient(user_input):
+        money_given = process_coins()
+        if is_successful_transaction(money_given, user_input):
+            make_coffee(user_input)
