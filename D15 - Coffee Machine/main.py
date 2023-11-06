@@ -16,4 +16,7 @@ def report():
     print(f"Money: ${money}")
 
 
-report()
+user_input = input("What would you like? (espresso/latte/cappuccino): ").lower()
+
+if user_input == report:
+    report()
