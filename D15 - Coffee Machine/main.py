@@ -26,6 +26,15 @@ def is_sufficient(flavour):
     return True
 
 
+def process_coins():
+    print("Insert coins.")
+    q = int(input("Quarters: "))
+    d = int(input("Dimes: "))
+    n = int(input("Nickel: "))
+    p = int(input("Pennies: "))
+    return q * 0.25 + d * 0.1 + n * 0.05 + p * 0.01
+
+
 user_input = input("What would you like? (espresso/latte/cappuccino): ").lower()
 
 if user_input == "report":
@@ -33,4 +42,5 @@ if user_input == "report":
 elif user_input == "off":
     pass
 elif (user_input in flavours) and is_sufficient(user_input):
-    print(f"Creating {user_input}")
+    money = process_coins()
+    print(money)
