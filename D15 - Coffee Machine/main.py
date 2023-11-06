@@ -35,6 +35,18 @@ def process_coins():
     return q * 0.25 + d * 0.1 + n * 0.05 + p * 0.01
 
 
+def is_successful_transaction(money_supplied, flavour):
+    price = MENU[flavour]["cost"]
+    if money_supplied < price:
+        print("Sorry that's not enough money. Money refunded.")
+        return False
+    elif money_supplied > price:
+        print(f"Here is ${money_supplied - price:.2f} dollars in change. ")
+        return True
+    else:
+        return True
+
+
 user_input = input("What would you like? (espresso/latte/cappuccino): ").lower()
 
 if user_input == "report":
@@ -42,5 +54,7 @@ if user_input == "report":
 elif user_input == "off":
     pass
 elif (user_input in flavours) and is_sufficient(user_input):
-    money = process_coins()
-    print(money)
+    money_given = process_coins()
+    if is_successful_transaction(money_given, user_input):
+        print(f"Here is your {user_input}. Enjoy!")
+
