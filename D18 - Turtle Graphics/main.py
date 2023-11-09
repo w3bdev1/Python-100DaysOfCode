@@ -22,19 +22,19 @@ def shift_starting_point(number_of_row, number_of_column):
     turt.goto(-centre_x, -centre_y)
 
 
-def draw_row(number_of_column):
-    for _ in range(number_of_column):
-        turt.dot(20, choice(colors))
-        turt.forward(GAP)
-    turt.setheading(180)
-    turt.forward(GAP * number_of_column)
-    turt.setheading(0)
-
-
 def draw_matrix(number_of_row, number_of_column):
     shift_starting_point(number_of_row, number_of_column)
     for _ in range(number_of_row):
-        draw_row(number_of_column)
+        # Draw one row
+        for _ in range(number_of_column):
+            turt.dot(20, choice(colors))
+            turt.forward(GAP)
+
+        # Back to starting column
+        turt.setheading(180)
+        turt.forward(GAP * number_of_column)
+
+        # Shift to above row
         turt.setheading(90)
         turt.forward(GAP)
         turt.setheading(0)
