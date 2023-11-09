@@ -4,6 +4,7 @@ from random import randint
 turt = Turtle()
 turt.pensize(5)
 screen = Screen()
+screen.colormode(255)
 
 
 def draw_polygon(number_of_sides: int):
@@ -15,7 +16,6 @@ def draw_polygon(number_of_sides: int):
 
 
 def randomize_color():
-    screen.colormode(255)
     r = randint(0, 255)
     g = randint(0, 255)
     b = randint(0, 255)
