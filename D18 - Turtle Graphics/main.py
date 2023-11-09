@@ -13,6 +13,7 @@ colors = [(210, 234, 244), (18, 112, 172), (187, 16, 63), (232, 144, 74), (243, 
 
 turt = Turtle()
 turt.speed("fastest")
+turt.penup()
 turt.hideturtle()
 screen = Screen()
 screen.colormode(255)
@@ -25,19 +26,12 @@ def shift_starting_point(number_of_row, number_of_column):
     POS_X_START = -centre_x
     POS_X = -centre_x
     POS_Y = -centre_y
-    turt.penup()
     turt.goto(POS_X, POS_Y)
-    turt.pendown()
 
 
 def draw_row(number_of_column):
     for _ in range(number_of_column):
-        turt.color(choice(colors))
-        turt.pendown()
-        turt.begin_fill()
-        turt.circle(20)
-        turt.end_fill()
-        turt.penup()
+        turt.dot(20, choice(colors))
         global POS_X
         POS_X += GAP
         turt.setx(POS_X)
