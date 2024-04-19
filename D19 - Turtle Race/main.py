@@ -35,6 +35,7 @@ while is_race_on:
                 turtle.write("I'm the winner.\nYou've won!", True, "center", ("monospace", 12, "normal"))
             else:
                 turtle.write("I'm the winner.\nYou've lost!", True, "center", ("monospace", 12, "normal"))
+            break
         else:
             random_distance = randint(0, 10)
             turtle.forward(random_distance)
